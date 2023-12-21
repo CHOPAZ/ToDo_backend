@@ -1,8 +1,11 @@
 import express from 'express';
+import cors from 'cors';
 import { getAll, createToDo, updateToDo, removeToDo } from './db.js';
 
 const app = express()
 const port = 3000;
+
+app.use(cors({origin: ['http://localhost:5173']}))
 
 /* прослойка(Middleware) для передачи json в response */
 app.use(express.json())
